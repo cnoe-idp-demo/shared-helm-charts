@@ -1,0 +1,65 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Values.agentName }}-agentcore-deployment"
+  namespace: "{{ .Values.agentName }}"
+  labels:
+    app: "{{ .Values.agentName }}"
+    component: agentcore-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.agentName }}
+        component: agentcore-deployment
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: execution-role-setup
+          image: amazon/aws-cli:latest
+          command: ["/bin/bash"]
+          args: ["/scripts/agentcore-runtime-execution-role.sh"]
+          env:
+            - name: AWS_DEFAULT_REGION
+              value: "{{ .Values.agentcore.job.awsRegion }}"
+            - name: AWS_REGION
+              value: "{{ .Values.agentcore.job.awsRegion }}"
+          envFrom:
+            - secretRef:
+                name: aws-credentials
+          volumeMounts:
+            - name: execution-role-script
+              mountPath: /scripts
+              readOnly: true
+            - name: shared-data
+              mountPath: /shared
+      containers:
+        - name: agentcore-deployment
+          image: amazon/aws-cli:latest
+          command: ["/bin/bash"]
+          args: ["/scripts/deploy-agentcore-runtime.sh"]
+          env:
+            - name: AWS_DEFAULT_REGION
+              value: "{{ .Values.agentcore.job.awsRegion }}"
+            - name: AWS_REGION
+              value: "{{ .Values.agentcore.job.awsRegion }}"
+          envFrom:
+            - secretRef:
+                name: aws-credentials
+          volumeMounts:
+            - name: deployment-script
+              mountPath: /scripts
+              readOnly: true
+            - name: shared-data
+              mountPath: /shared
+      volumes:
+        - name: execution-role-script
+          configMap:
+            name: "{{ .Values.agentName }}-execution-role-script"
+            defaultMode: 0755
+        - name: deployment-script
+          configMap:
+            name: "{{ .Values.agentName }}-deployment-script"
+            defaultMode: 0755
+        - name: shared-data
+          emptyDir: {}

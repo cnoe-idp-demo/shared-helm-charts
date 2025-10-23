@@ -1,0 +1,11 @@
+agentName: agent008
+envName: dev
+
+
+# AgentCore deployment job configuration
+agentcore:
+  job:
+    enabled: true
+    awsRegion: us-west-2
+    accountId: "229560443702"
+    containerUri: "229560443702.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest"
