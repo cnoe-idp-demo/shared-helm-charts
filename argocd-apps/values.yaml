@@ -4,11 +4,11 @@ namespace: argocd
 
 k8sServer: cnoe-ref-impl
 
- envList:
-   dev:
-     repo: dev
-     path: "abc"
-     namespace: demo-app01-dev
+envList:
+  dev:
+    repo: dev
+    path: "abc"
+    namespace: demo-app01-dev
 #   test:
 #     repo: test
 #     path: "abc"
