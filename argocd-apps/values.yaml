@@ -2,7 +2,7 @@ serviceName: demo-app01
 project: default
 namespace: argocd
 
-k8sServer: in-cluster
+k8sServer: cnoe-ref-impl
 
 # envList:
 #   dev:
