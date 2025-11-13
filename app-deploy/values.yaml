@@ -6,5 +6,5 @@ tag: latest
 roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
 
 environmentVariables:
-  # SDK: "strands"
+  # TENANT_SECRETS_PATH: "tenant01/agent001_dev"
   # REGION: "us-west-2"
