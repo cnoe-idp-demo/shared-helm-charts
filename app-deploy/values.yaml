@@ -1,7 +1,7 @@
 agentName: agent008
 envName: dev
 agentRuntimeName: agent008_dev
-imageRepo: 229560443702.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent
+imageRepo: 229560443702.dkr.ecr.us-west-2.amazonaws.com
 tag: latest
 roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
 
