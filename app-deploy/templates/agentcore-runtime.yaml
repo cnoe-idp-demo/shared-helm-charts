@@ -1,12 +1,12 @@
 apiVersion: bedrockagentcorecontrol.services.k8s.aws/v1alpha1
 kind: AgentRuntime
 metadata:
-  name: {{ .Values.agentName }}_{{ .Values.envName }}
+  name: {{ .Values.agentName }}-{{ .Values.envName }}
   namespace: {{ .Values.agentName }}
 spec:
   agentRuntimeArtifact:
     containerConfiguration:
-      containerURI: {{ .Values.imageRepo }}:{{ .Values.tag }}
+      containerURI: {{ .Values.imageRepo }}/{{ .Values.agentName }}:{{ .Values.tag }}
   agentRuntimeName: {{ .Values.agentRuntimeName }}
   roleARN: {{ .Values.roleArn }}
   networkConfiguration:
