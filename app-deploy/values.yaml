@@ -1,11 +1,10 @@
 agentName: agent008
 envName: dev
+agentRuntimeName: agent008_dev
+imageRepo: 229560443702.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent
+tag: latest
+roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
 
-
-# AgentCore deployment job configuration
-agentcore:
-  job:
-    enabled: true
-    awsRegion: us-west-2
-    accountId: "229560443702"
-    containerUri: "229560443702.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest"
+environmentVariables:
+  # SDK: "strands"
+  # REGION: "us-west-2"
