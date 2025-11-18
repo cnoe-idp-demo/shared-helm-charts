@@ -8,3 +8,10 @@ roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRunti
 environmentVariables:
   # TENANT_SECRETS_PATH: "tenant01/agent001_dev"
   # REGION: "us-west-2"
+
+vaultSecrets:
+  enabled: false
+  name: openapi_key
+  secretName: agent008-dev
+  vaultSecretPath: /tenant001/agent001
+  secretKey: api_key
