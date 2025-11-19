@@ -2,7 +2,7 @@ apiVersion: bedrockagentcorecontrol.services.k8s.aws/v1alpha1
 kind: AgentRuntime
 metadata:
   name: {{ .Values.agentName }}-{{ .Values.envName }}
-  namespace: {{ .Values.agentName }}
+  namespace: {{ .Values.agentName }}-{{ .Values.envName }}
 spec:
   agentRuntimeArtifact:
     containerConfiguration:
