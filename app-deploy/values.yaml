@@ -6,7 +6,7 @@ tag: latest
 roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
 
 environmentVariables:
-  # TENANT_SECRETS_PATH: "tenant01/agent001_dev"
+  # OPENAI_API_SECRET: "/tenant001/agent001/api_key"
   # REGION: "us-west-2"
 
 vaultSecrets:
