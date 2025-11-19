@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cw-logs-tail-service
-  namespace: {{ .Values.agentName }}
+  namespace: {{ .Values.agentName }}-{{ .Values.envName }}
   labels:
     app: cw-logs-tail-service
 spec:
