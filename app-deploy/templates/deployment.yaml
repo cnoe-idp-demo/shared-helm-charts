@@ -1,0 +1,32 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cw-logs-tail-service
+  namespace: {{ .Values.agentName }}
+  labels:
+    app: cw-logs-tail-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cw-logs-tail-service
+  template:
+    metadata:
+      labels:
+        app: cw-logs-tail-service
+    spec:
+      serviceAccountName: cw-logs-tail
+      containers:
+      - name: cw-logs-tail-service
+        image: public.ecr.aws/a9f6b2l7/cw-logs-tailler:latest
+        env:
+        - name: LOG_GROUP_NAME
+          value: "{{ .Values.logGroupName }}"
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "50m"
+          limits:
+            memory: "64Mi"
+            cpu: "100m"

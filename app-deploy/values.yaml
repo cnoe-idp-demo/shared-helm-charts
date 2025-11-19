@@ -4,6 +4,10 @@ agentRuntimeName: agent008_dev
 imageRepo: 229560443702.dkr.ecr.us-west-2.amazonaws.com
 tag: latest
 roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
+cloudWatchLogTailRoleArn: arn:aws:iam::229560443702:role/cnoe-refl-cw-logs-tail
+logGroupName: /aws/bedrock-agentcore/runtimes/demoagent002_dev-P57qHb5iUO-DEFAULT
+
+
 
 environmentVariables:
   # OPENAI_API_SECRET: "/tenant001/agent001/api_key"
