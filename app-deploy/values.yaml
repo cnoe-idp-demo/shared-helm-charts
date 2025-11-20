@@ -6,6 +6,7 @@ tag: latest
 roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
 cloudWatchLogTailRoleArn: arn:aws:iam::229560443702:role/cnoe-refl-cw-logs-tail
 agentRuntimeID: demoagent002_dev-P57qHb5iUO
+region: us-west-2
 
 
 
@@ -16,8 +17,8 @@ environmentVariables:
 secrets:
   # - name: openapi_key
   #   vault:
-  #     path: /tenant001/agent001
+  #     path: tenant004/awsagent001
   #     key: api_key
   #   awsSecretManager:
-  #     key: "/tenant001/agent001/api_key"
+  #     key: "tenant004/awsagent001/api_key"
     
