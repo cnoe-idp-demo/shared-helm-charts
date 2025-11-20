@@ -5,7 +5,7 @@ imageRepo: 229560443702.dkr.ecr.us-west-2.amazonaws.com
 tag: latest
 roleArn: arn:aws:iam::229560443702:role/service-role/AmazonBedrockAgentCoreRuntimeDefaultServiceRole
 cloudWatchLogTailRoleArn: arn:aws:iam::229560443702:role/cnoe-refl-cw-logs-tail
-logGroupName: /aws/bedrock-agentcore/runtimes/demoagent002_dev-P57qHb5iUO-DEFAULT
+agentRuntimeID: demoagent002_dev-P57qHb5iUO
 
 
 
@@ -13,9 +13,11 @@ environmentVariables:
   # OPENAI_API_SECRET: "/tenant001/agent001/api_key"
   # REGION: "us-west-2"
 
-vaultSecrets:
-  enabled: false
-  name: openapi_key
-  secretName: agent008-dev
-  vaultSecretPath: /tenant001/agent001
-  secretKey: api_key
+secrets:
+  # - name: openapi_key
+  #   vault:
+  #     path: /tenant001/agent001
+  #     key: api_key
+  #   awsSecretManager:
+  #     key: "/tenant001/agent001/api_key"
+    

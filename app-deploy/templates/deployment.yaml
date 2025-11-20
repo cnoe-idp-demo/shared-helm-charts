@@ -1,28 +1,34 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cw-logs-tail-service
+  name: cw-logs-tailer
   namespace: {{ .Values.agentName }}-{{ .Values.envName }}
   labels:
-    app: cw-logs-tail-service
+    app: cw-logs-tailer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cw-logs-tail-service
+      app: cw-logs-tailer
   template:
     metadata:
       labels:
-        app: cw-logs-tail-service
+        app: cw-logs-tailer
     spec:
       serviceAccountName: cw-logs-tail
       containers:
-      - name: cw-logs-tail-service
-        image: public.ecr.aws/a9f6b2l7/cw-logs-tailler:latest
-        env:
-        - name: LOG_GROUP_NAME
-          value: "{{ .Values.logGroupName }}"
+      - name: cw-logs-tailer
+        image: public.ecr.aws/aws-cli/aws-cli:latest
+        command:
+          - "aws"
+          - "logs"
+          - "tail"
+          - "/aws/bedrock-agentcore/runtimes/{{ .Values.agentRuntimeID }}-DEFAULT"
+          - "--follow"
+          - "--region"
+          - "{{ .Values.region }}"
+          - "--format"
+          - "json"
         resources:
           requests:
             memory: "32Mi"
