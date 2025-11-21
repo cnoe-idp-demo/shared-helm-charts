@@ -12,7 +12,7 @@ region: us-west-2
 
 environmentVariables:
   DISABLE_ADOT_OBSERVABILITY: "true"
-  OPENAI_API_SECRET: "tenant004/awsagent001/api_key"
+  # OPENAI_API_SECRET: "tenant004/awsagent001/api_key"
   AGENT_NAME: awsagent003_dev
   AGENT_ENV: Dev
   LANGFUSE_API_SECRET: prod/langfuse
