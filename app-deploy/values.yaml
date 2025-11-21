@@ -11,8 +11,11 @@ region: us-west-2
 
 
 environmentVariables:
-  # OPENAI_API_SECRET: "/tenant001/agent001/api_key"
-  # REGION: "us-west-2"
+  DISABLE_ADOT_OBSERVABILITY: "true"
+  OPENAI_API_SECRET: "tenant004/awsagent001/api_key"
+  AGENT_NAME: awsagent003_dev
+  AGENT_ENV: Dev
+  LANGFUSE_API_SECRET: prod/langfuse
 
 secrets:
   # - name: openapi_key
