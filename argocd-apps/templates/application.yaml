@@ -11,6 +11,11 @@ spec:
   source:
     path: {{ $config.path }}
     repoURL: "{{ $config.repo }}"
+    {{- if $config.customValuesFile}}
+    helm:
+      valueFiles:
+        - {{ $config.customValuesFile }}
+    {{- end}}
   destination:
     name: {{ $.Values.k8sServer }}
     namespace: {{ $config.namespace }}

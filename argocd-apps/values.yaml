@@ -4,12 +4,14 @@ namespace: argocd
 
 k8sServer: cnoe-ref-impl
 
-#envList:
+# envList:
 #  dev:
 #    repo: dev
 #    path: "abc"
 #    namespace: demo-app01-dev
+#    customValuesFile: ""
 #   test:
 #     repo: test
 #     path: "abc"
 #     namespace: demo-app01-test
+#     customValuesFile: ""
