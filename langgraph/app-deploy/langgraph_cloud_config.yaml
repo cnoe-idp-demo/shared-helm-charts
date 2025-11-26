@@ -1,0 +1,22 @@
+namespace: langgraph-test
+
+images:
+  apiServerImage:
+    repository: 229560443702.dkr.ecr.us-west-2.amazonaws.com/demo-agent-langgraph-api
+    tag: 0.0.1
+
+apiServer:
+  service:
+    type: ClusterIP
+
+studio:
+  service:
+    type: ClusterIP
+
+postgres:
+  external:
+    enabled: false
+    connectionUrl: postgresql://postgres:XXXXXXX@HOST:5432/DB?sslmode=require
+
+config:
+  existingSecretName: lang-graph-license
