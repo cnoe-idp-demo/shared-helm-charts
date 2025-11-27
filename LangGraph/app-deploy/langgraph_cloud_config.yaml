@@ -4,7 +4,7 @@ namespace: sample-dev
 
 images:
   apiServerImage:
-    repository: 229560443702.dkr.ecr.us-west-2.amazonaws.com/demo-agent-langgraph-api
+    repository: 229560443702.dkr.ecr.us-west-2.amazonaws.com/REPO_NAME
     tag: 0.0.1
 
 apiServer:
