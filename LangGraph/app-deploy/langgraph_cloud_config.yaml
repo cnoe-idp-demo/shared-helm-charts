@@ -18,7 +18,10 @@ studio:
 postgres:
   external:
     enabled: false
-    connectionUrl: postgresql://postgres:XXXXXXX@HOST:5432/DB?sslmode=require
+    secretManager:
+      enabled: false
+      secretName: postgres-secret
+      secretKey: connectionUrl
 
 config:
   existingSecretName: langgraph-cloud-secrets
