@@ -1,0 +1,33 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: {{ include "langGraphCloud.fullname" . }}-ingress-tls-es
+  namespace: {{ .Values.namespace | default .Release.Namespace | quote }}
+spec:
+  data:
+  - remoteRef:
+      conversionStrategy: Default
+      decodingStrategy: None
+      key: default-tls-prod
+      metadataPolicy: None
+      property: tls.key
+    secretKey: tls.key
+  - remoteRef:
+      conversionStrategy: Default
+      decodingStrategy: None
+      key: default-tls-prod
+      metadataPolicy: None
+      property: tls.crt
+    secretKey: tls.crt
+  refreshInterval: '0'
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: default-cert
+  target:
+    creationPolicy: Owner
+    deletionPolicy: Retain
+    name: ingress-tls
+    template:
+      engineVersion: v2
+      mergePolicy: Replace
+      type: kubernetes.io/tls
